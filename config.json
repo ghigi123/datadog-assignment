@@ -1,0 +1,99 @@
+{
+    "websites": {
+        "http://www.google.fr/": {
+            "url": "http://www.google.fr/",
+            "config": {
+                "checkDelay": 1000,
+                "metrics": {
+                    "availability": true,
+                    "response_time": true,
+                    "response_code": true
+                },
+                "aggregators": {
+                    "2_minutes": {
+                        "timeframe": 120000,
+                        "computeDelay": 10000,
+                        "display": false,
+                        "metrics": {
+                            "availability": [
+                                "AVG_TIME"
+                            ],
+                            "response_time": [
+                                "MIN",
+                                "MAX",
+                                "AVG"
+                            ]
+                        }
+                    },
+                    "10_minutes": {
+                        "timeframe": 600000,
+                        "computeDelay": 10000,
+                        "display": true,
+                        "metrics": {
+                            "availability": [
+                                "AVG_TIME"
+                            ],
+                            "response_time": [
+                                "MIN",
+                                "MAX",
+                                "AVG"
+                            ],
+                            "response_code": [
+                                "COUNT"
+                            ]
+                        }
+                    },
+                    "1_hour": {
+                        "timeframe": 3600000,
+                        "computeDelay": 60000,
+                        "display": true,
+                        "metrics": {
+                            "availability_2_minutes_AVG_TIME": [
+                                "AVG_TIME"
+                            ],
+                            "response_time_2_minutes_MIN": [
+                                "MIN"
+                            ],
+                            "response_time_2_minutes_MAX": [
+                                "MAX"
+                            ],
+                            "response_time_2_minutes_AVG": [
+                                "AVG"
+                            ],
+                            "response_code_10_minutes_COUNT": [
+                                "AVG"
+                            ]
+                        }
+                    }
+                },
+                "alerts": {
+                    "availability_2_minutes_AVG_TIME": {
+                        "min": 0.8
+                    }
+                }
+            }
+        },
+        "http://www.google.com/": {
+            "url": "http://www.google.com/",
+            "config": {
+                "checkDelay": 1000,
+                "metrics": {
+                    "availability": true
+                },
+                "aggregators": {
+                    "1_min": {
+                        "timeframe": 1000,
+                        "computeDelay": 1000,
+                        "display": true,
+                        "metrics": {
+                            "availability": [
+                                "AVG"
+                            ]
+                        }
+                    }
+                },
+                "alerts": {}
+            }
+        }
+    }
+}

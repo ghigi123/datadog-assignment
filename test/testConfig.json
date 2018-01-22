@@ -1,0 +1,30 @@
+{
+    "websites": {
+        "http://localhost:8080/": {
+            "url": "http://localhost:8080/",
+            "config": {
+                "checkDelay": 50,
+                "metrics": {
+                    "availability": true
+                },
+                "aggregators": {
+                    "test": {
+                        "timeframe": 150,
+                        "computeDelay": 150,
+                        "display": false,
+                        "metrics": {
+                            "availability": [
+                                "AVG_TIME"
+                            ]
+                        }
+                    }
+                },
+                "alerts": {
+                    "availability_test_AVG_TIME": {
+                        "min": 0.8
+                    }
+                }
+            }
+        }
+    }
+}
